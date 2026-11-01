@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Khairul Chat</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="loginView" class="login-wrap">
+  <form id="loginForm" class="login-card">
+    <div class="logo">K</div><h1>Khairul Chat</h1><p class="muted">Ruang sembang ahli berdaftar</p>
+    <label>Nama pengguna<input id="loginUsername" autocomplete="username" required></label>
+    <label>Kata laluan<input id="loginPassword" type="password" autocomplete="current-password" required></label>
+    <button class="primary full">Log Masuk</button><p id="loginError" class="error"></p>
+  </form>
+</div>
+<div id="appView" class="app hidden">
+  <aside class="sidebar">
+    <header class="side-head"><div class="brand"><div class="logo small">K</div><div><b>Khairul Chat</b><small>Komuniti tertutup</small></div></div><button id="logoutBtn" class="icon-btn" title="Log keluar">↪</button></header>
+    <div class="profile"><div class="avatar" id="myAvatar">A</div><div><b id="myName">Ahli</b><small id="myRole">Ahli</small></div><span class="online-dot"></span></div>
+    <div class="room-label">RUANG CHAT</div><div class="room active"><span>👥</span><div><b>Group Utama</b><small>Perbualan semua ahli</small></div></div>
+    <div id="adminPanel" class="admin-panel hidden">
+      <div class="admin-title">PENGURUSAN AHLI</div>
+      <form id="addMemberForm">
+        <input id="newDisplayName" placeholder="Nama ahli" required maxlength="60">
+        <input id="newUsername" placeholder="Username login" required maxlength="40">
+        <input id="newPassword" placeholder="Kata laluan (min 8)" type="password" required minlength="8">
+        <button class="primary full">＋ Tambah Ahli</button>
+      </form><p id="memberFeedback" class="feedback"></p>
+      <div id="memberList"></div>
+    </div>
+    <div class="side-footer">Akses ahli hanya melalui jemputan admin.</div>
+  </aside>
+  <main class="chat">
+    <header class="chat-head"><div class="group-avatar">👥</div><div><b>Group Utama</b><small id="onlineText">Chat peribadi ahli</small></div><span class="secure">● Sistem tertutup</span></header>
+    <section id="messages" class="messages"><div class="date-chip">Mesej terkini</div></section>
+    <form id="sendForm" class="composer"><input id="messageInput" maxlength="1000" placeholder="Taip mesej..." autocomplete="off" required><button class="send-btn" aria-label="Hantar">➤</button></form>
+  </main>
+</div>
+<script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>
